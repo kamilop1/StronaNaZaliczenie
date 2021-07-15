@@ -1,0 +1,69 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Strona na Zaliczenie</title>
+</head>
+<!-- komentarz /o/ -->
+<body>
+    <header> <!-- logo i nawigacja na górze strony -->
+        <img src="../img/logo.svg" alt="logo" class="logo">
+        <nav>
+            <ul class="list">
+                <li><a href="../index.html">Główna</a></li>
+                <li><a href="../calculators.html">Kalkulatory</a></li>
+                <li><a href="#">Minigry</a></li>
+                <li><a href="#">O Stronie</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="timesCalculatorBox">
+        <div id="timesCalculatorMain">
+         <div id="timesCalculatorTitle">Kalulator Jednostek Czasu</div>
+         <div id="timesCalculatorBig">
+            <div id="timesCalculatorMainLeft">Podaj Liczbę:<br><br>
+            <input type="text" id="timesCalculatorInput"><br><br>
+            <span id="timesCalculatorCalcFrom">Przelicz z:</span><br><br>
+            <select name="InitialTime" id="InitialTime">
+                <option value="0">Milisekundy</option>
+                <option value="1">Sekundy</option>
+                <option value="2">Minuty</option>
+                <option value="3">Godziny</option>
+                <option value="4">Dnie</option>
+                <option value="5">Tygodnie</option>
+            </select>
+            </div>
+            <div id="timesCalculatorMainCenter">
+                <span>Przelicz na:</span>
+                <div id="timesCalculatorCalcToGrid">
+                    <div onclick="calculate('0')">Milisekundy</div>
+                    <div onclick="calculate('1')">Sekundy</div>
+                    <div onclick="calculate('2')">Minuty</div>
+                    <div onclick="calculate('3')">Godziny</div>
+                    <div onclick="calculate('4')">Dnie</div>
+                    <div onclick="calculate('5')">Tygodnie</div>
+                </div>
+            </div>
+            <div id="timesCalculatorMainRight">
+                <span>Wynik:</span><br><br>
+                <div id="timesCalculatorResult">0</div>
+            </div>
+         </div>
+         <div id="timesCalculatorCopyright">Copyright© KLOP Productions</div>
+        </div>
+    </section>
+    
+    <script type="text/javascript">
+   function calculate(){
+        const czasy=["1","1000","60000","3600000","86400000","604800000"];
+        var ToCalc=document.getElementById("timesCalculatorInput").value;
+        var InitialTime=document.getElementById("InitialTime").value;
+        var EndTime=arguments[0];
+        document.getElementById("timesCalculatorResult").innerHTML=Math.round(ToCalc*czasy[InitialTime]/czasy[EndTime]*1000000)/1000000;
+   }
+    </script>
+</body>
+</html>

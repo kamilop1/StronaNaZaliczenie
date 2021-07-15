@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+	<meta charset="utf-8">
+ <script langugae="JavaScript">
+     
+     
+     
+    </script>
+</head>
+
+<body>
+<form action="http://localhost/formularz.php" method="post"> 
+    <p>Podaj imię i nazwisko</p>
+    <input type="text" name="name"> <br>
+    <label>zgadzam się na przetwarzanie danych osobowych......
+    <input type="checkbox" name="boks" checked>
+    <br></label>
+    <input type="radio" name="radio1" value="kobieta"> kobieta <br>
+    <input type="radio" name="radio1" value="mężczyzna"> mężczyzna <br>
+    <input type="password" name="hasuo" maxlength="8">
+    <input type="file" name="plik">
+    <fieldset><legend>legenda</legend>
+       <p>
+        Podaj swój adres email
+        <input type="email" name="email" value="podaj mail">
+    </p>
+    <p>Podaj numer od 10 do 100:
+    <input type="number" name="liczba" min=10 max=100 step=5>
+    </p>
+    <p>Podaj datę czegośtam<input type="date" name="data"></p>
+    <select name="lista">
+        <optgroup label="programiści">
+        <option value="<18">&lt;18</option>
+        <option value="18-30" selected>18-30</option>
+        <option value=">30-">&gt;30</option>
+        </optgroup>
+        <optgroup label="informatycy">
+        <option value="<18">&lt;18</option>
+        <option value="18-30" selected>18-30</option>
+        <option value=">30-">&gt;30</option>
+        </optgroup>
+    </select>
+    <textarea name="pela" cols="1" rows="1">napisz coś o sobie</textarea>
+    <input type="text">
+       <datalist>
+        <option value="sr">sx</option>
+        </datalist>
+    <input type="reset" name="reset">
+    <input type="submit" value="wyślij">
+    </fieldset>
+
+</form>
+
+</body>
+
+</html>

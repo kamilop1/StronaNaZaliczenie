@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Strona na Zaliczenie</title>
+</head>
+<!-- komentarz /o/ -->
+<body>
+    <header> <!-- logo i nawigacja na górze strony -->
+        <img src="../img/logo.svg" alt="logo" class="logo">
+        <nav>
+            <ul class="list">
+                <li><a href="../index.html">Główna</a></li>
+                <li><a href="../calculators.html">Kalkulatory</a></li>
+                <li><a href="#">Minigry</a></li>
+                <li><a href="#">O Stronie</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="weightsCalculatorBox">
+        <div id="weightsCalculatorMain">
+         <div id="weightsCalculatorTitle">Kalulator Jednostek Masy</div>
+         <div id="weightsCalculatorBig">
+            <div id="weightsCalculatorMainLeft">Podaj Liczbę:<br><br>
+            <input type="text" id="weightsCalculatorInput"><br><br>
+            <span id="weightsCalculatorCalcFrom">Przelicz z:</span><br><br>
+            <select name="InitialWeight" id="InitialWeight">
+                <option value="0">Gram</option>
+                <option value="1">Dekagram</option>
+                <option value="2">Kilogram</option>
+                <option value="3">Tona</option>
+                <option value="4">Uncja (Ounce)</option>
+                <option value="5">Funt (Pound)</option>
+            </select>
+            </div>
+            <div id="weightsCalculatorMainCenter">
+                <span>Przelicz na:</span>
+                <div id="weightsCalculatorCalcToGrid">
+                    <div onclick="calculate('0')">Gram</div>
+                    <div onclick="calculate('1')">Dekagram</div>
+                    <div onclick="calculate('2')">Kilogram</div>
+                    <div onclick="calculate('3')">Tona</div>
+                    <div onclick="calculate('4')">Uncja (Ounce)</div>
+                    <div onclick="calculate('5')">Funt (Pound)</div>
+                </div>
+            </div>
+            <div id="weightsCalculatorMainRight">
+                <span>Wynik:</span><br><br>
+                <div id="weightsCalculatorResult">0</div><br>
+                <span>Ile liczb po przecinku?</span>
+                <input type="text" name="ilePoPrzecinku" id="ilePoPrzecinku" value="2">
+            </div>
+         </div>
+         <div id="weightsCalculatorCopyright">Copyright© KLOP Productions</div>
+        </div>
+    </section>
+    
+    <script type="text/javascript">
+   function calculate(){
+        const dlugosci=["1","10","1000","1000000","28.3495","453.5923"];
+        var ToCalc=document.getElementById("weightsCalculatorInput").value;
+        var InitialWeight=document.getElementById("InitialWeight").value;
+        var EndWeight=arguments[0];
+        var IlePoPrzecinku="1".concat("0".repeat(document.getElementById("ilePoPrzecinku").value));
+        document.getElementById("weightsCalculatorResult").innerHTML=Math.round(ToCalc*dlugosci[InitialWeight]/dlugosci[EndWeight]*IlePoPrzecinku)/IlePoPrzecinku;
+   }
+    </script>
+</body>
+</html>

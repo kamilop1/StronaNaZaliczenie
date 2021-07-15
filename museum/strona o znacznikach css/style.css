@@ -1,0 +1,37 @@
+html{
+background-color: lightblue;
+}
+.header{
+    background-color: beige;
+    height:35px;
+    width:98%;
+    border: 4px double #299DA4;
+    font-size:30px;
+    position:fixed;
+    top:0%;
+}
+.footer{
+    background-color: beige;
+    height:35px;
+    width:98%;
+    border: 4px double #299DA4;
+    font-size:30px;
+    position:fixed;
+    bottom:0%;
+}
+.article{
+    display:block;
+    height:300px;
+    width:800px;
+    background-color: khaki;
+    margin:50px 5px;
+    padding:5px;
+}
+
+
+.title{
+    color:red
+}
+.ramka{
+    color:aqua;
+}

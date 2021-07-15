@@ -1,0 +1,283 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Strona na Zaliczenie</title>
+</head>
+<!-- komentarz /o/ -->
+<body>
+    <header> <!-- logo i nawigacja na górze strony -->
+        <img src="../img/logo.svg" alt="logo" class="logo">
+        <nav>
+            <ul class="list">
+                <li><a href="../index.html">Główna</a></li>
+                <li><a href="../calculators.html">Kalkulatory</a></li>
+                <li><a href="#">Minigry</a></li>
+                <li><a href="#">O Stronie</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+        <table class="tabela">
+            <thead>
+            <tr>
+                <td colspan="3" id="screen"></td>
+                <td><button type="button" class="buttons" onclick="Clear()">C</button></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><button type="button" class="buttons" onclick="buttonPress('back')"><img src="img/back.png" alt="back" class="icons"></button></td>
+                <td><button type="button" class="buttons" onclick="buttonPress('pow')"><img src="img/xpowx.png" alt="x²" class="icons"></button></td>
+                <td><button type="button" class="buttons" onclick="buttonPress('sqrt')"><img src="img/sqrt.png" alt="sqrt" class="icons"></button></td>
+                <td><button type="button" class="buttons" onclick="buttonPress('div')">÷</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="buttons" onclick="numberPress('7')">7</button></td>
+                <td><button type="button" class="buttons" onclick="numberPress('8')">8</button></td>
+                <td><button type="button" class="buttons" onclick="numberPress('9')">9</button></td>
+                <td><button type="button" class="buttons" onclick="buttonPress('mtp')">×</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="buttons" onclick="numberPress('4')">4</button></td>
+                <td><button type="button" class="buttons" onclick="numberPress('5')">5</button></td>
+                <td><button type="button" class="buttons" onclick="numberPress('6')">6</button></td>
+                <td><button type="button" class="buttons" onclick="buttonPress('sub')">-</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="buttons" onclick="numberPress('1')">1</button></td>
+                <td><button type="button" class="buttons" onclick="numberPress('2')">2</button></td>
+                <td><button type="button" class="buttons" onclick="numberPress('3')">3</button></td>
+                <td><button type="button" class="buttons" onclick="buttonPress('add')">+</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="buttons" onclick="buttonPress('minus')">-/+</button></td>
+                <td><button type="button" class="buttons" onclick="numberPress('0')">0</button></td>
+                <td><button type="button" class="buttons" onclick="buttonPress('.')">.</button></td>
+                <td><button type="button" class="buttons" onclick="calculate()">=</button></td>
+            </tr>
+            <tbody>
+        </table>
+        <div id="nic"></div>
+    </main>
+    
+    <script type="text/javascript">
+   var powernumber="";
+var Calculating=0;
+var currentCalculation=0;
+var nic=document.getElementById("nic").innerHTML;
+var clearscreen=0;
+var firstNumber=nic;
+var showedresult=0;
+function numberPress() {
+    var arg=arguments[0];
+    var elem=document.getElementById("screen");
+    if(clearscreen==1){
+        elem.innerHTML=nic;
+        clearscreen=0;
+    }
+    if(elem.innerHTML==nic){
+        elem.innerHTML=arg;
+    }
+    else{
+        if(currentCalculation=="pow"){
+            elem.innerHTML=elem.innerHTML+parseFloat(arg);
+        }
+        else{
+            if(elem.innerHTML.charAt(elem.innerHTML.length-1)=="."){
+                elem.innerHTML=elem.innerHTML+arg;
+            }
+            else if(elem.innerHTML.indexOf(".")!==-1){
+                var srch=elem.innerHTML.indexOf(".");
+                elem.innerHTML=elem.innerHTML.substr(0,srch+1)+elem.innerHTML.substr(srch+1,100).concat(arg);
+            }
+            else{
+                elem.innerHTML=elem.innerHTML*10+parseFloat(arg); 
+            }
+        }
+    }
+}
+function buttonPress() {
+    var elem=document.getElementById("screen");
+    if(elem.innerHTML==nic){
+    }
+    else{
+        if(arguments[0]!=="pow"){
+            powernumber="";
+        }
+        if(arguments[0]=="add") {
+           if(currentCalculation=="mtp"){
+            elem.innerHTML=parseFloat(firstNumber)*parseFloat(elem.innerHTML);
+            firstNumber=nic;
+           }
+            else if(currentCalculation=="sub"){
+            elem.innerHTML=parseFloat(firstNumber)-parseFloat(elem.innerHTML);
+            firstNumber=nic;
+            }
+            else if(currentCalculation=="div"){
+            elem.innerHTML=parseFloat(firstNumber)/parseFloat(elem.innerHTML);
+            firstNumber=nic;
+            }
+            currentCalculation="add";
+    if(firstNumber==nic){
+    firstNumber=elem.innerHTML;
+    elem.innerHTML=nic;
+    }
+    else{
+        firstNumber=parseFloat(firstNumber)+parseFloat(elem.innerHTML)
+        elem.innerHTML=nic;
+    }
+    }
+        else if(arguments[0]=="sub") {
+        if(currentCalculation=="mtp"){
+            elem.innerHTML=parseFloat(firstNumber)*parseFloat(elem.innerHTML);
+            firstNumber=nic;
+           }
+            else if(currentCalculation=="add"){
+            elem.innerHTML=parseFloat(firstNumber)+parseFloat(elem.innerHTML);
+            firstNumber=nic;
+            }
+            else if(currentCalculation=="div"){
+            elem.innerHTML=parseFloat(firstNumber)/parseFloat(elem.innerHTML);
+            firstNumber=nic;
+            }
+    currentCalculation="sub";
+    if(firstNumber==nic){
+    firstNumber=elem.innerHTML;
+    elem.innerHTML=nic;
+    }
+    else{
+        firstNumber=parseFloat(firstNumber)-parseFloat(elem.innerHTML)
+        elem.innerHTML=nic;
+    }
+    }
+        else if(arguments[0]=="div") {
+            if(currentCalculation=="mtp"){
+            elem.innerHTML=parseFloat(firstNumber)*parseFloat(elem.innerHTML);
+            firstNumber=nic;
+           }
+            else if(currentCalculation=="add"){
+            elem.innerHTML=parseFloat(firstNumber)+parseFloat(elem.innerHTML);
+            firstNumber=nic;
+            }
+            else if(currentCalculation=="sub"){
+            elem.innerHTML=parseFloat(firstNumber)-parseFloat(elem.innerHTML);
+            firstNumber=nic;
+            }
+    currentCalculation="div";
+    if(firstNumber==nic){
+    firstNumber=elem.innerHTML;
+    elem.innerHTML=nic;
+    }
+    else{
+        firstNumber=parseFloat(firstNumber)/parseFloat(elem.innerHTML)
+        elem.innerHTML=nic;
+    }
+    } 
+    else if(arguments[0]=="mtp") {
+        if(currentCalculation=="div"){
+            elem.innerHTML=parseFloat(firstNumber)/parseFloat(elem.innerHTML);
+            firstNumber=nic;
+           }
+            else if(currentCalculation=="add"){
+            elem.innerHTML=parseFloat(firstNumber)+parseFloat(elem.innerHTML);
+            firstNumber=nic;
+            }
+            else if(currentCalculation=="sub"){
+            elem.innerHTML=parseFloat(firstNumber)-parseFloat(elem.innerHTML);
+            firstNumber=nic;
+            }
+            currentCalculation="mtp";
+    if(firstNumber==nic) {
+        firstNumber=elem.innerHTML;
+        elem.innerHTML=nic;
+    }
+    else{
+        firstNumber=parseFloat(firstNumber)*parseFloat(elem.innerHTML)
+        elem.innerHTML=nic;
+    }
+    }   
+    else if(arguments[0]=="sqrt" && elem.innerHTML!==nic) {
+        elem.innerHTML=Math.sqrt(elem.innerHTML);
+    }
+    else if(arguments[0]=="pow" && elem.innerHTML!==nic) {
+        currentCalculation="pow";
+        if(powernumber!==""){        
+        }
+        else{
+            powernumber=parseFloat(elem.innerHTML);
+            elem.innerHTML="do której:";
+            firstNumber="pow"
+        }
+    }
+    else if(arguments[0]=="minus" && elem.innerHTML!==nic) {
+        if(elem.innerHTML.charAt(0)!=="-"){
+        elem.innerHTML="-"+elem.innerHTML;
+        }
+        else{
+            elem.innerHTML=elem.innerHTML.substr(1,100) 
+        }
+    }
+    else if(arguments[0]=="back" && elem.innerHTML!==nic) {
+        elem.innerHTML=elem.innerHTML.substring(0, elem.innerHTML.length - 1);
+    }
+    else if(arguments[0]=="." && elem.innerHTML!==nic) {
+        if(elem.innerHTML.includes(".")!==true){
+            elem.innerHTML=elem.innerHTML+"." 
+        }
+    }
+    } 
+}
+function calculate(){
+    var elem=document.getElementById("screen");
+    if(elem.innerHTML==nic){
+        elem.innerHTML=firstNumber;
+    }
+    else{
+    if(firstNumber==nic){
+    }
+    else{
+        if(currentCalculation=="add"){
+            firstNumber=parseFloat(firstNumber)+parseFloat(elem.innerHTML);
+        }
+        else if(currentCalculation=="sub"){
+            firstNumber=parseFloat(firstNumber)-parseFloat(elem.innerHTML);
+        }
+        else if(currentCalculation=="div"){
+            firstNumber=parseFloat(firstNumber)/parseFloat(elem.innerHTML);
+        }
+        else if(currentCalculation=="mtp"){
+            firstNumber=parseFloat(firstNumber)*parseFloat(elem.innerHTML);
+        }
+        else if(currentCalculation=="pow"){
+            firstNumber=Math.pow(powernumber,elem.innerHTML.substr(10, 27));
+            powernumber="";
+        }
+        elem.innerHTML=firstNumber;
+        firstNumber=nic;
+        showedresult=1;
+        currentCalculation=0;
+        powernumber="";
+    }
+    }
+    if(elem.innerHTML=="NaN"){ // bsod
+        elem.innerHTML="coś zepsułeś(aś)"
+        document.body.className="error";
+    }
+    if(elem.innerHTML=="2137"){ //jeżeli wynik to 2137 to zagra barkę i pokaże jp2 (xd)
+        document.body.className="error2";
+        var audio = new Audio('aud/barka.mp3');
+        audio.play();
+    }
+}
+function Clear(){
+document.getElementById("screen").innerHTML=nic;
+firstNumber=nic;
+}
+    </script>
+</body>
+</html>

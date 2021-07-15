@@ -1,0 +1,63 @@
+
+.tabela {
+    border:1px solid #C0C0C0;
+    border-collapse:collapse;
+    padding:5px;
+    max-width:1000px;
+    margin:auto;
+}
+.tabela tbody td, #clear {
+    padding:0px;
+    margin:0px;
+    border:1px solid #C0C0C0;
+    height:70px;
+    width:70px;
+    background:#313131;
+    line-height: 100%;
+    text-align:center;
+    font-size:40px;
+    color:rgb(255, 255, 255);
+    cursor: pointer;
+}
+.tabela thead td{
+    padding: 0px;
+    margin:0px;
+    height:70px;
+    width:70px;
+    border:1px solid #C0C0C0;
+}
+#screen{
+    background-color: gray;
+    color:greenyellow;
+    font-size:30px;
+}
+.error{
+    background-image: url("img/bsod.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.error2{
+    background-image: url("img/jp2.jpg");
+}
+.error3{
+    background-image: url("img/mati.png");
+}
+.icons{
+    height:30px;
+    width:40px;
+}
+#emptycell{
+    font-size: small; 
+    cursor:default;
+}
+.buttons{
+    background-color: #313131;
+    height:100%;
+    width:100%;
+    margin:0px;
+    padding:0px;
+    outline:none;
+    color:white;
+    font-size:40px;
+    font-weight:unset;
+}

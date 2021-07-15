@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<script language="JavaScript">
+     function oblicz(parametr){
+        var a=document.getElementById("a").value;
+        var b=document.getElementById("b").value;
+        a=parseFloat(a);
+        b=parseFloat(b);
+        switch(parametr){
+                case 1:
+            var suma=a+b;
+            document.getElementById("wynik").innerHTML="wynik dzialania="+suma;
+                break;
+                case 2:
+            var roznica=a-b;
+            document.getElementById("wynik").innerHTML="wynik dzialania="+roznica;
+                break;
+                case 3:
+            var mnozenie=a/b;
+            document.getElementById("wynik").innerHTML="wynik dzialania="+mnozenie;
+                break;
+                case 4:
+            var dzielenie=a*b;
+            document.getElementById("wynik").innerHTML="wynik dzialania="+dzielenie;
+                break;
+                
+        }   
+     }
+        
+    /*function suma(){
+        var a=document.getElementById("a").value;
+        var b=document.getElementById("b").value;
+        a=parseFloat(a);
+        b=parseFloat(b);
+        if (a == ""){
+            document.getElementById("wynik").innerHTML = "brak liczby";
+        }
+        else {
+        var suma=a+b;
+        document.getElementById("wynik").innerHTML="wynik dzialania="+suma;
+        }
+    }
+    function roznica(){
+    var a=document.getElementById("a").value;
+        var b=document.getElementById("b").value;
+        a=parseFloat(a);
+        b=parseFloat(b);
+        var roznica=a-b;
+        document.getElementById("wynik").innerHTML="wynik dzialania="+roznica;
+    }
+      function dzielenie(){
+    var a=document.getElementById("a").value;
+        var b=document.getElementById("b").value;
+        a=parseFloat(a);
+        b=parseFloat(b);
+        var roznica=a/b;
+        document.getElementById("wynik").innerHTML="wynik dzialania="+roznica;
+    }
+        function mnozenie(){
+    var a=document.getElementById("a").value;
+        var b=document.getElementById("b").value;
+        a=parseFloat(a);
+        b=parseFloat(b);
+        var roznica=a*b;
+        document.getElementById("wynik").innerHTML="wynik dzialania="+roznica;
+    }
+    */
+    
+    </script>
+</head>
+
+<body>
+<h1>Krzywe działania</h1>
+<label>podaj pierwszą liczbę<input type="text" id=a></label><br>
+<label>podaj drugą liczbę<input type="text" id=b></label><br>
+
+<input type="button" value="+" onclick="oblicz(1)">
+<input type="button" value="-" onclick="oblicz(2)">
+<input type="button" value="/" onclick="oblicz(3)">
+<input type="button" value="x" onclick="oblicz(4)">
+    <div id=wynik></div>
+</body>
+
+</html>

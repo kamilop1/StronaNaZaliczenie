@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #mainbox{
+            width:80%;
+            height:100%;
+            display:flex;
+            justify-items: center;
+            margin: auto;
+        }
+        #Gridbox{
+            background-color: aqua;
+            width:100%;
+            height:500px;
+            display: grid;
+            grid-template-rows: 3.5fr 1.25fr 7fr 1.25fr;
+            justify-self: center;
+        }
+        #redbox{
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        #redboxleft{
+            background-color: red;
+        }
+        #redboxright{
+            background-color: firebrick;
+        }
+        #logo{
+            height:100px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <main id="mainbox">
+        <div id="Gridbox">
+            <div style="background-color: cadetblue; text-align: center;"><img src="logo.png" alt="nic" id="logo"><span>Logo</span>   </div> 
+            <div style="background-color: burlywood; text-align: center;">Nawigacja Tu</div>
+            <div style="background-color: red; text-align: center;" id="redbox">
+        <div id="redboxleft" style="text-align: center;">
+            <h2>rodzaje ek:</h2>
+            <span>-Eka ledowa -Pralkoeka</span>
+        </div>
+        <div id="redboxright"></div>
+            </div>
+            <div style="background-color: greenyellow; text-align: center;">footer</div>
+        </div>
+    </main>
+</body>
+</html>

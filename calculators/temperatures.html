@@ -1,0 +1,129 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Strona na Zaliczenie</title>
+</head>
+<!-- komentarz /o/ -->
+<body>
+    <header> <!-- logo i nawigacja na górze strony -->
+        <img src="../img/logo.svg" alt="logo" class="logo">
+        <nav>
+            <ul class="list">
+                <li><a href="../index.html">Główna</a></li>
+                <li><a href="../calculators.html">Kalkulatory</a></li>
+                <li><a href="#">Minigry</a></li>
+                <li><a href="#">O Stronie</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="temperatureCalculatorBox">
+        <div id="temperatureCalculatorMain">
+         <div id="temperatureCalculatorHeader">
+        <span>Kalkulator Temperatur</span>
+         </div>   
+         <div id="temperatureCalculatorCenter">
+            <div id="temperatureCalculatorTopCenter">
+                <div id="temperatureCalculatorTopleft">
+                    <div></div>
+                    <div>Podaj Temperaturę:<br>
+                        <input type="text" id="Tocalculate"></div>
+                    <div></div>
+                </div>
+                <div id="temperatureCalculatorTopcenter">
+                    <div></div>
+                    <div><span>Przelicz z:<br></span>
+                        <select name="initialTemperature" id="initialTemperature">
+                            <option value="0">Stopnie Celsjusza °C</option>
+                            <option value="1">Stopnie Fahrenheita °F</option>
+                            <option value="2">Kelwiny</option>
+                        </select></div>
+                    <div><button id="temperatureCalculatorCalculateButton" onclick="calc()">Przelicz</button></div>
+                </div>
+                <div id="temperatureCalculatorTopright">
+                    <div></div>
+                    <div><span>Na:<br></span>
+                        <select name="convertTemperature" id="convertTemperature">
+                            <option value="0">Stopnie Celsjusza °C</option>
+                            <option value="1">Stopnie Fahrenheita °F</option>
+                            <option value="2">Kelwiny</option>
+                        </select></div>
+                    <div></div>
+                </div>
+            </div>
+            <div id="temperatureCalculatorBottomCenter">
+                <span id="temperatureCalculatorResultHeader">Wynik:</span>
+                <div id="temperatureCalculatorResult">0</div>
+            </div>
+         </div>
+         <div id="temperatureCalculatorCopyright">
+             <span>Copyright© KLOP Productions</span>
+         </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+    function calc(){
+        var ToCalc=document.getElementById("Tocalculate").value;
+        var InitialTemperature=document.getElementById("initialTemperature").value;
+        var EndTemperature=document.getElementById("convertTemperature").value;
+        var Result=document.getElementById("temperatureCalculatorResult");
+        console.log(InitialTemperature);
+        console.log(EndTemperature);
+        const endtempsymbol=["°C","°F","K"];
+        switch (InitialTemperature){
+            case "0":
+                switch(EndTemperature) {
+                    case "0":
+                    Result.innerHTML=parseFloat(ToCalc);
+                    Result.innerHTML=Math.round(Result.innerHTML*100)/100+endtempsymbol[EndTemperature];
+                    break;
+                    case "1":
+                    Result.innerHTML=parseFloat(ToCalc)*1.8+32;
+                    Result.innerHTML=Math.round(Result.innerHTML*100)/100+endtempsymbol[EndTemperature];
+                    break;
+                    case "2":
+                    Result.innerHTML=parseFloat(ToCalc)+273.15;
+                    Result.innerHTML=Math.round(Result.innerHTML*100)/100+endtempsymbol[EndTemperature];
+                    break;  
+                } 
+                break;
+            case "1":
+                switch(EndTemperature) {
+                    case "0":
+                    Result.innerHTML=5/9*(parseFloat(ToCalc)-32);
+                    Result.innerHTML=Math.round(Result.innerHTML*100)/100+endtempsymbol[EndTemperature];
+                    break;
+                    case "1":
+                    Result.innerHTML=parseFloat(ToCalc);
+                    Result.innerHTML=Math.round(Result.innerHTML*100)/100+endtempsymbol[EndTemperature];
+                    break;
+                    case "2":
+                    Result.innerHTML=(parseFloat(ToCalc)+459.67)*5/9;
+                    Result.innerHTML=Math.round(Result.innerHTML*100)/100+endtempsymbol[EndTemperature];
+                    break;  
+                }
+                break;
+            case "2":
+                switch(EndTemperature) {
+                    case "0":
+                    Result.innerHTML=parseFloat(ToCalc)-273.15;
+                    Result.innerHTML=Math.round(Result.innerHTML*100)/100+endtempsymbol[EndTemperature];
+                    break;
+                    case "1":
+                    Result.innerHTML=(parseFloat(ToCalc)*9/5)-459.67;
+                    Result.innerHTML=Math.round(Result.innerHTML*100)/100+endtempsymbol[EndTemperature];
+                    break;
+                    case "2":
+                    Result.innerHTML=parseFloat(ToCalc);
+                    Result.innerHTML=Math.round(Result.innerHTML*100)/100+endtempsymbol[EndTemperature];
+                    break;  
+                }
+                break;
+        }
+    }
+    </script>
+</body>
+</html>

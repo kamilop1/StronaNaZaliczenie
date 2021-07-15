@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #main{
+            display: grid;
+            grid-template-columns: repeat(14, 1fr);
+            grid-template-rows: repeat(18, 1fr);
+            height:fit-content;
+            width: fit-content;
+        }
+        .peloblok{
+            height:40px;
+            width:40px;
+        }
+        body{
+            background-color: dimgray;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="generuj()" style="background-color: #353338; color:white;">Generuj!</button>
+    <main id="main">
+
+    </main>
+    
+    <script type="text/javascript">
+    var kolory=["white","#ff0000","rgb(248,170,0)","rgb(126,28,3)","blue"]
+    var tabela=[
+    [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,1,1,1,1,1,0,0,0,0,0],
+    [0,0,0,1,1,1,1,1,1,1,1,0,0,0],
+    [0,0,0,3,3,3,2,2,3,2,0,0,0,0],
+    [0,0,3,2,3,2,2,2,3,2,2,2,0,0],
+    [0,0,3,2,3,3,2,2,2,3,2,2,2,0],
+    [0,0,3,3,2,2,2,2,3,3,3,3,0,0],
+    [0,0,0,0,2,2,2,2,2,2,0,0,0,0],
+    [0,0,0,1,1,4,1,1,4,1,1,0,0,0],
+    [0,0,1,1,1,4,1,1,4,1,1,1,0,0],
+    [0,1,1,1,1,4,4,4,4,1,1,1,1,0],
+    [0,2,2,1,4,2,4,4,2,4,1,2,2,0],
+    [0,2,2,2,4,4,4,4,4,4,2,2,2,0],
+    [0,2,2,4,4,4,4,4,4,4,4,2,2,0],
+    [0,0,0,4,4,4,0,0,4,4,4,0,0,0],
+    [0,0,3,3,3,0,0,0,0,3,3,3,0,0],
+    [0,3,3,3,3,0,0,0,0,3,3,3,3,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    ]
+    function generuj(){
+        var place=0;
+        for(let i=0;i<252;i++){
+            let pela=document.createElement("div");
+            pela.setAttribute("class","peloblok");
+            pela.setAttribute("id","b"+i);
+            document.getElementById("main").appendChild(pela);
+        }
+        for(let minitabela of tabela){
+            for(let el of minitabela){
+                document.getElementById("b"+place).style.backgroundColor=kolory[el];
+                place=place+1;
+            }
+        }
+    }
+    function test(){
+        for(let pela of tabela){
+            for(let el of pela){
+                console.log(el);
+            }
+        }
+    }
+    </script>
+</body>
+</html>

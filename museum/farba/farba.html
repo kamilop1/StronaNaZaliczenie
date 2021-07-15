@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+<script language="JavaScript">
+    function liczenie(){
+        var a=document.getElementById("powierzchnia").value; 
+        a=parseFloat(a);
+        a=Math.ceil(a/4);
+        document.getElementById("wynik").innerHTML=a;
+    }
+    </script>
+</head>
+
+<body style="background-color: darkseagreen">
+    <h1>Obliczanie na podstawie powierzchni zapotrzebowania na farbę </h1>
+    <p>Podaj powierzchnię: <input type="text" id="powierzchnia" value=""></p>
+    <p><input type="button" name="policz" value="Policz" onclick="liczenie()"></p>
+    <div id="wynik">   
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+.container{
+    height:2000px;
+    width:1000px;
+    font-size:12;
+    background-color:white;
+}
+.logo{
+    height:50px;
+    text-align:center;
+    background-color: coral;
+}
+.navL{
+    width:600px;
+    height:100px;
+    background-color: aquamarine;
+    float:left;
+}
+.navR{
+    width:400px;
+    height:100px;
+    float:right;
+    background-color: brown;
+}
+.bigcenterbox{
+    width:600px;
+    height:300px;
+    float:left;
+}
+.smallleftbox{
+    width:300px;
+    height:175px;
+    float:left;
+    background-color: darkmagenta;
+}
+.smallrightbox{
+    width:300px;
+    height:175px;
+    float:right;
+    background-color: darkgoldenrod;
+}
+.bigbottombox{
+    width:600px;
+    height:125px;
+    background-color: forestgreen;
+    clear:both;
+}
+.centerrightbox{
+    width:400px;
+    height:300px;
+    background-color: darkgray;
+    float:right;
+}
+.bottom1box{
+    width:333px;
+    height:125px;
+    background-color:red;
+    float:left;
+}
+.bottom2box{
+    width:333px;
+    height:125px;
+    background-color:firebrick;
+    float: left;
+}
+.bottom3box{
+    width:334px;
+    height:125px;
+    background-color:darkred;
+float:right;
+}
+.copyrightleft{
+    width:500px;
+    height:100px;
+    float:left;
+    background-color: bisque;
+}
+.copyrightright{
+    width:500px;
+    height:100px;
+    float:right;
+    background-color:darksalmon
+}

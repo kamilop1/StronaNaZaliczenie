@@ -1,0 +1,19 @@
+body{
+background-image:url(img/img1.png);
+background-repeat:no-repeat;
+background-size:auto;
+ }
+.header{
+height:100px;
+width:auto;
+color:aqua;
+font-size:50px;
+text-align:center;
+}
+.nav{
+height:600px;
+width:500px;
+color:aqua;
+font-size:40px;
+text-align:center;
+}

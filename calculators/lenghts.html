@@ -1,0 +1,78 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Strona na Zaliczenie</title>
+</head>
+<!-- komentarz /o/ -->
+<body>
+    <header> <!-- logo i nawigacja na górze strony -->
+        <img src="../img/logo.svg" alt="logo" class="logo">
+        <nav>
+            <ul class="list">
+                <li><a href="../index.html">Główna</a></li>
+                <li><a href="../calculators.html">Kalkulatory</a></li>
+                <li><a href="#">Minigry</a></li>
+                <li><a href="#">O Stronie</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="lenghtsCalculatorBox">
+        <div id="lenghtsCalculatorMain">
+         <div id="lenghtsCalculatorTitle">Kalulator Jednostek Długości</div>
+         <div id="lenghtsCalculatorBig">
+            <div id="lenghtsCalculatorMainLeft">Podaj Liczbę:<br><br>
+            <input type="text" id="lenghtsCalculatorInput"><br><br>
+            <span id="lenghtsCalculatorCalcFrom">Przelicz z:</span><br><br>
+            <select name="InitialLenght" id="InitialLenght">
+                <option value="0">Milimetry</option>
+                <option value="1">Centymetry</option>
+                <option value="2">Cale</option>
+                <option value="3">Decymetry</option>
+                <option value="4">Stopy</option>
+                <option value="5">Jardy</option>
+                <option value="6">Metry</option>
+                <option value="7">Kilometry</option>
+                <option value="8">Mile</option>
+            </select>
+            </div>
+            <div id="lenghtsCalculatorMainCenter">
+                <span>Przelicz na:</span>
+                <div id="lenghtsCalculatorCalcToGrid">
+                    <div onclick="calculate('0')">Milimetry</div>
+                    <div onclick="calculate('1')">Centymetry</div>
+                    <div onclick="calculate('2')">Cale</div>
+                    <div onclick="calculate('3')">Decymetry</div>
+                    <div onclick="calculate('4')">Stopy</div>
+                    <div onclick="calculate('5')">Jardy</div>
+                    <div onclick="calculate('6')">Metry</div>
+                    <div onclick="calculate('7')">Kilometry</div>
+                    <div onclick="calculate('8')">Mile</div>
+                </div>
+            </div>
+            <div id="lenghtsCalculatorMainRight">
+                <span>Wynik:</span><br><br>
+                <div id="lenghtsCalculatorResult">0</div><br>
+                <span>Ile liczb po przecinku?</span>
+                <input type="text" name="ilePoPrzecinku" id="ilePoPrzecinku" value="6">
+            </div>
+         </div>
+         <div id="lenghtsCalculatorCopyright">Copyright© KLOP Productions</div>
+        </div>
+    </section>
+    
+    <script type="text/javascript">
+   function calculate(){
+        const dlugosci=["0.1","1","2.54","10","30.48","91.44","100","100000","160934.4"];
+        var ToCalc=document.getElementById("lenghtsCalculatorInput").value;
+        var InitialLenght=document.getElementById("InitialLenght").value;
+        var EndLenght=arguments[0];
+        var IlePoPrzecinku="1".concat("0".repeat(document.getElementById("ilePoPrzecinku").value));
+        document.getElementById("lenghtsCalculatorResult").innerHTML=Math.round(ToCalc*dlugosci[InitialLenght]/dlugosci[EndLenght]*IlePoPrzecinku)/IlePoPrzecinku;
+   }
+    </script>
+</body>
+</html>

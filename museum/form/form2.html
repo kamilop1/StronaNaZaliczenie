@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+	<meta charset="utf-8">
+ <script langugae="JavaScript">
+     
+     
+     
+    </script>
+</head>
+
+<body>
+<h1>Formularz Rejestracyjny</h1>
+   <form action="http://localhost/formularz.php" method="post">
+     <table style="border:0px">
+        <tr>
+        <td>Podaj swoje imię</td>
+        <td><input type="text" name="imie"></td>
+        </tr>
+        <tr>
+        <td>Podaj swoje nazwisko</td>
+        <td><input type="text" name="nazwisko"></td>
+        </tr>
+    </table>
+       <br>  
+        <fieldset style="width:100px" name="plec">
+        <input type="radio" name="radio1" value="kobieta"> Kobieta <br>
+        <input type="radio" name="radio1" value="mężczyzna"> Mężczyzna <br>
+        <input type="radio" name="radio1" value="idk"> Nie wiem... <br>  
+         </fieldset>  
+         <p>
+         Podaj wiek:<br>
+        <input type="text" name="wiek" value="18-30"><br>  
+         </p>
+         <p>
+         Podaj adres Email:<br>
+        <input type="text" name="email"><br>  
+         </p>
+         <p>
+         Wybierz wykształcenie<br>
+        <input type="radio" name="radio1" value="kobieta"> Podstawowe <br>
+        <input type="radio" name="radio1" value="mężczyzna"> Średnie <br>
+        <input type="radio" name="radio1" value="idk"> Wyższe <br>  
+        </p>
+        <p>
+            Wybierz język/języki którymi się posługujesz:<br>
+            <select name="jezyk">
+                <option value="ang">Język Angielski</option>
+                <option value="niem">Język Niemiecki</option>
+                <option value="fr">Język Francuski</option>
+                <option value="rus">Język Rosyjski</option>
+                <option value="his">Język Hiszpański</option>
+                <option value="wl">Język Włoski</option>
+            </select>            
+            </p>
+        <p>
+            Wybierz zainteresowania:<br>
+            <input type="checkbox" name="zaint1">Sport<br>
+            <input type="checkbox" name="zaint2">Muzyka<br>
+            <input type="checkbox" name="zaint3">Motoryzacja<br>
+            <input type="checkbox" name="zaint4">Taniec<br>
+            <input type="checkbox" name="zaint5">Sztuka<br>
+            <input type="checkbox" name="zaint6">Gry komputerowe<br>
+            <input type="checkbox" name="zaint7">Inne (podaj jakie):<input type="text" name="zaint_inne">    
+        </p>
+           <p>
+                Napisz 3 zdania o sobie:<br>
+               <textarea name="pela" cols="75" rows="3"></textarea><br>
+            <label>
+                Zgadzam się na przetwarzanie danych osobowych
+                <input type="checkbox" name="boks" checked>
+            </label>
+       </p>
+           <br>
+            <input type="reset" value="reset">
+            <input type="submit" value="wyślij">
+            <input type="button" value="kliknij tutaj" onclick="alert('beka')">
+    </form>
+
+    </body>
+
+    </html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Strona na Zaliczenie</title>
+</head>
+<!-- komentarz /o/ -->
+<body>
+    <header> <!-- logo i nawigacja na górze strony -->
+        <img src="../img/logo.svg" alt="logo" class="logo">
+        <nav>
+            <ul class="list">
+                <li><a href="../index.html">Główna</a></li>
+                <li><a href="../calculators.html">Kalkulatory</a></li>
+                <li><a href="#">Minigry</a></li>
+                <li><a href="#">O Stronie</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="currencyCalculatorBox">
+        <div id="currencyCalculatorMain">
+         <div id="currencyCalculatorHeader">
+        <span>Prosty Kalkulator Walut</span>
+         </div>   
+         <div id="currencyCalculatorCenter">
+            <div id="currencyCalculatorTopCenter">
+                <div id="currencyCalculatorTopleft">
+                    <div></div>
+                    <div>Podaj Kwotę:<br>
+                        <input type="text" id="Tocalculate"></div>
+                    <div></div>
+                </div>
+                <div id="currencyCalculatorTopcenter">
+                    <div></div>
+                    <div><span>Przelicz z:<br></span>
+                        <select name="initialCurrency" id="initialCurrency">
+                            <option value="0">Złotówka(PLN)</option>
+                            <option value="1">Funt Brytyjski(GBP)</option>
+                            <option value="2">Jen Japoński(JPY)</option>
+                            <option value="3">Euro(EUR)</option>
+                            <option value="4">$ Amerykański(USD)</option>
+                            <option value="5">$ Kanadyjski(CAD)</option>
+                            <option value="6">$ Australijski(AUS)</option>
+                        </select></div>
+                    <div><button id="currencyCalculatorCalculateButton" onclick="calc()">Przelicz</button></div>
+                </div>
+                <div id="currencyCalculatorTopright">
+                    <div></div>
+                    <div><span>Na:<br></span>
+                        <select name="convertCurrency" id="convertCurrency">
+                            <option value="0">Złotówka(PLN)</option>
+                            <option value="1">Funt Brytyjski(GBP)</option>
+                            <option value="2">Jen Japoński(JPY)</option>
+                            <option value="3">Euro(EUR)</option>
+                            <option value="4">$ Amerykański(USD)</option>
+                            <option value="5">$ Kanadyjski(CAD)</option>
+                            <option value="6">$ Australijski(AUS)</option>
+                        </select></div>
+                    <div></div>
+                </div>
+            </div>
+            <div id="currencyCalculatorBottomCenter">
+                <span id="currencyCalculatorWynikHeader">Wynik:</span>
+                <div id="currencyCalculatorWynik">0</div>
+            </div>
+         </div>
+         <div id="currencyCalculatorCopyright">
+             <span>Copyright© KLOP Productions</span>
+         </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+    const kurspln=["1","5.24","0.035","4.56","3.79","3.08","2.93"]
+    function calc(){
+        var ToCalc=document.getElementById("Tocalculate").value;
+        var InitialCurrency=document.getElementById("initialCurrency").value;
+        var EndCurrency=document.getElementById("convertCurrency").value;
+        document.getElementById("currencyCalculatorWynik").innerHTML=Math.round(ToCalc*kurspln[InitialCurrency]/kurspln[EndCurrency]*100)/100
+    }
+    </script>
+</body>
+</html>
